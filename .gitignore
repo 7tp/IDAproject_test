@@ -1,0 +1,10 @@
+node_modules/
+dist/
+/logs
+*.log
+
+*.vscode
+
+.npm
+npm-degub.log*
+*.git
