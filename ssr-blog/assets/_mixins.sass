@@ -1,0 +1,31 @@
+=mobile
+  @media screen and (max-width: $tablet - 1px)
+    @content
+
+=tablet
+  @media screen and (min-width: $tablet), print
+    @content
+
+=desktop
+  @media screen and (min-width: $desktop), print
+    @content
+
+
+//
+// POSITION
+//
+
+=fixed
+  position: fixed
+  top: 0
+  left: 0
+
+=flex-container
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+=flex-container-center
+  display: flex
+  justify-content: center
+  align-items: center

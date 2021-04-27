@@ -1,7 +1,11 @@
 <template>
   <header class="header">
-    <a href="/">Test list</a>
-    <img src="/cart.svg">
+    <div class="layout">
+      <a class="header__logo" href="/">TestList</a>
+      <div class="header__cart">
+        <img src="/cart.svg">
+      </div>
+    </div>
   </header>
 </template>
 
@@ -10,11 +14,3 @@ export default {
 
 }
 </script>
-
-<style>
-  /* .header {
-    position: fixed;
-    top: 0
-  } */
-
-</style>

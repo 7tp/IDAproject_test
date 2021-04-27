@@ -1,0 +1,25 @@
+body
+  font-family: $font-pt
+  font-size: $font-size
+  line-height: $line-height
+  color: $dark
+
+a
+  color: $dark
+  text-decoration: none
+
+.container
+  min-height: 100vh
+  max-width: 100%
+  +flex-container-center
+  text-align: center
+  position: relative
+  +desktop
+    max-width: 1246px
+    margin: auto
+
+.layout
+  +flex-container
+  +desktop
+    max-width: 1246px
+    margin: auto
