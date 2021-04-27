@@ -1,27 +1,29 @@
 <template>
   <section class="catalogue">
-    <div class="layout">
+    <h1 v-if="$fetchState.pending" class="title">Загружаем каталог...</h1>
+    <h1 v-else-if="$fetchState.error" class="title">Ошибка загрузки каталога...</h1>
+    <div class="layout" v-else>
       <div class="catalogue__header">
         <h1 class="title">Каталог</h1>
         <sort :points="points"></sort>
       </div>
-      <category :categories="categories"
+      <categories :categories="categories"
         v-model="currentCategory"
-        v-if="categories"
-      ></category>
-      <list :products="products.slice(0, itemsOnList)"></list>
+        @click="$fetch"
+      ></categories>
+      <list :filter="currentCategory"></list>
     </div>
   </section>
 </template>
 
 <script>
 import sort from './partials/sort.vue';
-import category from './category.vue';
+import categories from './categories.vue';
 import list from './list.vue'
 
 export default {
   name: 'catalogue',
-  components: { sort, category, list },
+  components: { sort, categories, list },
   data() {
     return {
       points: [
@@ -34,26 +36,20 @@ export default {
           value: 'популярности'
         }
       ],
-      itemsOnList: 10,
-      categoryApi: 'https://frontend-test.idaproject.com/api/product-category',
-      productApi: 'https://frontend-test.idaproject.com/api/product',
+      categoryRestApi: 'https://frontend-test.idaproject.com/api/product-category',
       categories: [],
-      products: [],
-      currentCategory: 0
+      currentCategory: 1
     }
   },
-  methods: {
 
+  mounted() {
+    this.currentCategory = this.categories[0].id
   },
   async fetch() {
     this.categories = await fetch(
-      this.categoryApi
-    ).then(res => res.json()),
-    this.products = await fetch(
-      this.productApi
+      this.categoryRestApi
     ).then(res => res.json())
   }
-
 }
 </script>
 

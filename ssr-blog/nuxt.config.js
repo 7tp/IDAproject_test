@@ -14,6 +14,7 @@ module.exports = {
     ]
   },
   css: ['~/assets/main'],
+  plugins: ['~/plugins/currency.js', '~/plugins/capitalize.js'],
   /*
   ** Customize the progress bar color
   */

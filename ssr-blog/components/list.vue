@@ -1,6 +1,8 @@
 <template>
-  <div class="list">
-    <card v-for="product in products" :key="product.id"
+  <div v-if="$fetchState.pending" class="list">Загружаем товары...</div>
+  <div v-else-if="$fetchState.error" class="list">Ошибка загрузки</div>
+  <div v-else class="list">
+    <card v-for="product in products.slice(0, itemsOnList)" :key="product.id"
       :product="product"
     >
     </card>
@@ -14,13 +16,37 @@ export default {
   name: 'list',
   components: {card},
   props: {
-    products: {
-      type: Array,
+    filter: {
+      type: Number,
       required: true
     }
-  }
-
-
+  },
+  data() {
+    return {
+      productRestApi: 'https://frontend-test.idaproject.com/api/product',
+      products: [],
+      itemsOnList: 12,
+    }
+  },
+  computed: {
+    filterProducts() {
+      return !!this.filter ? this.productRestApi + '?category=' + this.filter : this.productRestApi
+    }
+  },
+  watch: {
+    filterProducts(value) {
+      this.$fetch()
+    }
+  },
+  async fetch() {
+    this.products = await fetch(
+      this.filterProducts
+    ).then(res => res.json())
+  },
+  mounted() {
+    this.filterProducts;
+    this.$fetch()
+  },
 }
 </script>
 

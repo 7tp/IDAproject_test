@@ -1,7 +1,8 @@
 <template>
   <ul class="category">
-    <li class="category__item" v-for="category in categories" :key="category.id"
-      :class="{'category__item--chosen': category.id === current}"
+    <li class="category__item"
+      v-for="category in categories" :key="category.id"
+      :class="{'category__item--chosen': category.id === currentCategory}"
       @click="chooseCategory(category)"
     >
       {{ category.name }}
@@ -11,7 +12,7 @@
 
 <script>
 export default {
-  name: 'category',
+  name: 'categories',
   props: {
     categories: {
       type: Array,
@@ -43,7 +44,6 @@ export default {
   },
   methods: {
     chooseCategory(data) {
-      console.log(data)
       this.currentCategory = data.id
       this.current = data.id
     }

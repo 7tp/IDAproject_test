@@ -6,11 +6,29 @@
   line-height: $line-height--3
   box-shadow: 0px 4px 16px rgba($black, 0.05)
   border-radius: 0px 0px 8px 8px
+  background-color: $white
+  z-index: 5
   &__logo
     font-family: $font-pt-bold
     font-weight: $font-weight--bold
     color: $grey
   &__cart
+    position: relative
     +flex-container-center
     width: 66px
     height: 66px
+    cursor: pointer
+  &__cart-count
+    position: absolute
+    top: 16px
+    right: 14px
+    +flex-container-center
+    min-width: 12px
+    min-height: 12px
+    background-color: $grey-light
+    font-family: $font-pt-bold
+    font-weight: $font-weight--bold
+    font-size: $font-size--count
+    line-height: $line-height--count
+    border-radius: 50%
+    color: $white

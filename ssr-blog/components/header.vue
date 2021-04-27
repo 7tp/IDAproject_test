@@ -2,9 +2,10 @@
   <header class="header">
     <div class="layout">
       <a class="header__logo" href="/">TestList</a>
-      <div class="header__cart">
+      <a class="header__cart">
         <img src="/cart.svg">
-      </div>
+        <div class="header__cart-count">3</div>
+      </a>
     </div>
   </header>
 </template>

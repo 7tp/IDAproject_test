@@ -2,6 +2,7 @@
   position: relative
   min-width: 161px
   height: 21px
+  z-index: 4
   &__selected
     position: relative
     display: flex
@@ -31,12 +32,14 @@
     padding: 8px 0
     box-shadow: 0px 4px 16px rgba($black, 0.05)
     border-radius: 8px
+    background-color: $white
   &__point
     padding: 4px 12px
     font-size: $font-size--1
     line-height: $line-height--1
     color: $grey-light
     cursor: pointer
+    transition: .3s
     &:hover
       background: $grey-extra-light
       color: $dark

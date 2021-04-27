@@ -1,19 +1,61 @@
 .card
   position: relative
+  box-shadow: 0px 4px 16px rgba($black, 0.05)
+  border-radius: 8px
   &::after
     content: ''
     padding-bottom: 100%
     display: block
+
   &__content
     position: absolute
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
     width: 100%
     height: 100%
+    padding: 4px
+    +tablet
+      padding: 8px
+    +desktop
+      padding: 16px
+
+  &__top
+    position: absolute
+    top: 4px
+    left: 4px
+    +flex-container
+    width: calc(100% - 8px)
+    z-index: 2
+    +tablet
+      top: 8px
+      left: 8px
+      width: calc(100% - 16px)
+    +desktop
+      top: 16px
+      left: 16px
+      width: calc(100% - 32px)
+  &__cart
+    cursor: pointer
+    svg path
+      transition: .4s
+    &:hover
+      svg path
+        fill: $dark
+
   &__image
-    position: relative
-    width: 100%
+    +absolute-center-x
+    top: 6px
+    width: 66%
+    margin: auto
+    +tablet
+      top: 10px
+    +desktop
+      top: 18px
     &::after
       content: ''
       padding-bottom: 100%
+      display: block
     img
       position: absolute
   &__rate
@@ -22,3 +64,18 @@
     line-height: $line-height--rate
     color: $popular
 
+  &__bottom
+    position: relative
+    font-size: $font-size--1
+    line-height: $line-height--1
+    z-index: 2
+  &__name
+    color: $grey
+  &__price
+    font-family: $font-pt-bold
+    font-weight: $font-weight--bold
+    margin-top: 6px
+
+  &--in-cart
+    .card__cart svg path
+      fill: $dark
