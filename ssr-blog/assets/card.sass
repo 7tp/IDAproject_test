@@ -1,0 +1,24 @@
+.card
+  position: relative
+  &::after
+    content: ''
+    padding-bottom: 100%
+    display: block
+  &__content
+    position: absolute
+    width: 100%
+    height: 100%
+  &__image
+    position: relative
+    width: 100%
+    &::after
+      content: ''
+      padding-bottom: 100%
+    img
+      position: absolute
+  &__rate
+    +flex-container-start
+    font-size: $font-size--rate
+    line-height: $line-height--rate
+    color: $popular
+

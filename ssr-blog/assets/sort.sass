@@ -1,0 +1,42 @@
+.sort
+  position: relative
+  min-width: 161px
+  height: 21px
+  &__selected
+    position: relative
+    display: flex
+    flex-wrap: nowrap
+    color: $grey
+    cursor: pointer
+    overflow: hidden
+    &--opened
+      .sort__arrow
+        transform: rotate(180deg)
+  &__selected-value
+    width: 155px
+    white-space: nowrap
+    overflow: hidden
+  &__placeholder
+    color: $dark
+  &__arrow
+    position: absolute
+    top: 11px
+    right: 0
+    width: 5px
+    height: 3px
+    transition: .25s
+  &__dropdown
+    +absolute
+    top: 27px
+    padding: 8px 0
+    box-shadow: 0px 4px 16px rgba($black, 0.05)
+    border-radius: 8px
+  &__point
+    padding: 4px 12px
+    font-size: $font-size--1
+    line-height: $line-height--1
+    color: $grey-light
+    cursor: pointer
+    &:hover
+      background: $grey-extra-light
+      color: $dark

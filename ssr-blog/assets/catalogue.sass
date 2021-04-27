@@ -1,0 +1,18 @@
+.catalogue
+  min-height: calc(100vh - 66px)
+  &__header
+    grid-area: header
+    +flex-container
+    margin: 32px 0 24px 0
+  &__list
+    grid-area: list
+  .layout
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-areas: "header" "nav" "list"
+    +tablet
+      grid-template-columns: 3fr 9fr
+      grid-template-areas: "header header" "nav list"
+    +desktop
+      grid-template-columns: 2fr 14fr
+

@@ -11,6 +11,12 @@
 
 <script>
 export default {
+  name: 'header-top'
 
 }
 </script>
+
+<style scoped lang="sass">
+  @import '~/assets/main'
+  @import '~/assets/header.sass'
+</style>

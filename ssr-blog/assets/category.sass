@@ -1,0 +1,19 @@
+.category
+  grid-area: nav
+  height: 100%
+  &__item
+    color: $grey-light
+    cursor: pointer
+    transition: .2s
+    width: fit-content
+    &:not(:last-of-type)
+      margin-bottom: 16px
+    &--chosen
+      color: $dark
+      background-image: linear-gradient($dark, $dark)
+      background-position: 0% 100%
+      background-repeat: no-repeat
+      background-size: 100% 1px
+      transition: background-size .15s
+    &:hover
+      color: $grey
