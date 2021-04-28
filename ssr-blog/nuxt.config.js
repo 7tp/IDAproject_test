@@ -14,7 +14,12 @@ module.exports = {
     ]
   },
   css: ['~/assets/main'],
-  plugins: ['~/plugins/currency.js', '~/plugins/capitalize.js', '~/plugins/toggleHtmlOverflow.js'],
+  plugins: [
+    '~/plugins/currency.js',
+    '~/plugins/capitalize.js',
+    '~/plugins/toggleHtmlOverflow.js',
+    '~/plugins/vue-the-mask.js',
+  ],
   modules: [
     '@nuxtjs/style-resources',
   ],

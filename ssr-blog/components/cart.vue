@@ -19,15 +19,17 @@
       >
       </cart-card>
     </template>
+    <checkout v-if="products.length > 0"></checkout>
   </div>
 </template>
 
 <script>
-import cartCard from './partials/cart-card.vue'
+import cartCard from './partials/cart-card.vue';
+import checkout from './checkout.vue'
 
 export default {
   name: 'cart',
-  components: { cartCard },
+  components: { cartCard, checkout },
   computed: {
     products() { return this.$store.state.cart.list }
   },
