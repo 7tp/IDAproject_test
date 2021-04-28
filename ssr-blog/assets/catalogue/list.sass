@@ -3,9 +3,13 @@
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-gap: 4px
+  margin-top: 32px
   +tablet
+    margin-top: 0
     grid-template-columns: repeat(3, 1fr)
     grid-gap: 8px
   +desktop
     grid-template-columns: repeat(4, 1fr)
     grid-gap: 16px
+  &--center
+    +flex-container-center

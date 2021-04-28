@@ -14,7 +14,15 @@ module.exports = {
     ]
   },
   css: ['~/assets/main'],
-  plugins: ['~/plugins/currency.js', '~/plugins/capitalize.js'],
+  plugins: ['~/plugins/currency.js', '~/plugins/capitalize.js', '~/plugins/toggleHtmlOverflow.js'],
+  modules: [
+    '@nuxtjs/style-resources',
+  ],
+  styleResources: {
+    sass: [
+      '~/assets/main.sass',
+    ]
+  },
   /*
   ** Customize the progress bar color
   */

@@ -1,0 +1,61 @@
+<template>
+  <div class="modal" :class="{'modal--opened': open}"
+    @click="closeOutside"
+  >
+    <cart></cart>
+  </div>
+</template>
+
+<script>
+import cart from './cart.vue'
+
+export default {
+  name: 'modal',
+  props: {
+    value: {
+      type: Boolean,
+      required: true
+    }
+  },
+  data() {
+    return {
+      open: false
+    }
+  },
+  components: { cart },
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
+  computed: {
+    openModal: {
+      get: function() {
+        return this.value
+      },
+      set: function(newValue) {
+        this.$emit('change', newValue)
+      }
+    },
+  },
+  methods: {
+    closeModal() {
+      this.openModal = false
+      this.$toggleHtmlOverflow('initial')
+    },
+    closeOutside(e) {
+      if (e.target.className == 'modal modal--opened' || e.target.className == 'modal__close-icon') {
+        this.closeModal()
+      }
+    }
+  },
+  watch: {
+    openModal(value) {
+      this.open = value
+    }
+  }
+}
+</script>
+
+<style scoped lang="sass">
+  @import '~/assets/modal.sass'
+</style>

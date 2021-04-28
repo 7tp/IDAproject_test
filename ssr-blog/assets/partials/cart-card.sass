@@ -1,0 +1,37 @@
+.cart-card
+  display: flex
+  justify-content: space-between
+  padding: 12px 16px
+  box-shadow: 0px 4px 16px rgba($black, .05)
+  border-radius: 8px
+  &__content
+    display: flex
+  &__image
+    position: relative
+    width: 90px
+    margin-right: 16px
+    &::after
+      content: ''
+      display: block
+      padding-bottom: 100%
+    img
+      position: absolute
+  &__layout
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    font-size: $font-size--1
+    line-height: $line-height--1
+  &__name
+    color: $grey
+  &__price
+    @extend .card__price
+  &__delete
+    align-self: center
+    svg
+      cursor: pointer
+    svg path
+      transition: .25s
+    &:hover svg path
+      fill: $dark
+

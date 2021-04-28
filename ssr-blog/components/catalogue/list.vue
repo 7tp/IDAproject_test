@@ -1,6 +1,6 @@
 <template>
-  <div v-if="$fetchState.pending" class="list">Загружаем товары...</div>
-  <div v-else-if="$fetchState.error" class="list">Ошибка загрузки</div>
+  <div v-if="$fetchState.pending" class="list list--center">Загружаем товары...</div>
+  <div v-else-if="$fetchState.error" class="list list--center">Ошибка загрузки</div>
   <div v-else class="list">
     <card v-for="product in products.slice(0, itemsOnList)" :key="product.id"
       :product="product"
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import card from './partials/card.vue'
+import card from '../partials/card.vue'
 
 export default {
   name: 'list',
@@ -51,6 +51,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-  @import '~/assets/main'
-  @import '~/assets/list.sass'
+  @import '~/assets/catalogue/list.sass'
 </style>

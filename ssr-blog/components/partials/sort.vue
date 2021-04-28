@@ -48,6 +48,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import '~/assets/main'
-  @import '~/assets/sort.sass'
+  @import '~/assets/partials/sort.sass'
 </style>
