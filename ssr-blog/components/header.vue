@@ -34,7 +34,7 @@ export default {
         this.$emit('change', newValue)
       }
     },
-    count() { return this.$store.state.cart.list.length }
+    count() { return this.$store.state.cart.list.length } // подсчет товаров в корзине для отображения в иконке
   },
   methods: {
     openCart() {

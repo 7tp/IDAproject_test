@@ -29,6 +29,11 @@ export default {
 
     },
   },
+  mounted() {
+    if (process.browser && localStorage.getItem('basket')) { // добавлем в корзину товары, сохраненные в localStorage браузера
+      this.$store.commit('cart/fromLocalStorage', JSON.parse(localStorage.getItem('basket')))
+    }
+  }
 }
 </script>
 

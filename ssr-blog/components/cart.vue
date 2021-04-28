@@ -1,15 +1,12 @@
 <template>
-  <div class="cart">
+  <div class="cart" :class="{'cart--success': successFlag}">
     <div class="cart__header">
       <h1 class="cart__title">
-        <span v-if="products.length > 0">Корзина</span>
+        <span v-if="products.length > 0 || successFlag">Корзина</span>
         <span v-else>Корзина пока пуста</span>
       </h1>
       <div class="modal__close">
         <img class="modal__close-icon" src="/close.svg">
-        <!-- <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 5.293a1 1 0 010 1.414l-12 12a1 1 0 01-1.414-1.414l12-12a1 1 0 011.414 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5.293 5.293a1 1 0 011.414 0l12 12a1 1 0 01-1.414 1.414l-12-12a1 1 0 010-1.414z" fill="#000"/>
-        </svg> -->
       </div>
     </div>
     <template v-if="products.length > 0">
@@ -19,7 +16,12 @@
       >
       </cart-card>
     </template>
-    <checkout v-if="products.length > 0"></checkout>
+    <checkout v-if="products.length > 0" v-model="successFlag"></checkout>
+    <div class="cart__success-block" v-if="successFlag">
+      <img src="/ok-hand-sign_emoji.png">
+      <h2 class="cart__subtitle">Заявка успешно отправлена</h2>
+      <p>Вскоре наш менеджер свяжется с Вами</p>
+    </div>
   </div>
 </template>
 
@@ -29,10 +31,35 @@ import checkout from './checkout.vue'
 
 export default {
   name: 'cart',
-  components: { cartCard, checkout },
-  computed: {
-    products() { return this.$store.state.cart.list }
+  data() {
+    return {
+      successFlag: false
+    }
   },
+  components: { cartCard, checkout },
+  computed: { // получаем из $store массив товаров, добавленных в корзину
+    products() {
+      return this.$store.state.cart.list
+    }
+  },
+  methods:{
+    storeBasket(products){
+      if(process.browser){
+        localStorage.setItem('basket', products);
+      }
+    }
+  },
+  watch: {
+    products() {
+      // если был уже сделан удачный заказ и пользователь вновь наполняет корзину,
+      // убираем флаг об успешной отправке заказа
+      if (this.$store.state.cart.list.length > 0) {
+        this.successFlag = false;
+      }
+      // сохраняем в localStorage товары из корзины
+      this.storeBasket(JSON.stringify(this.products));
+    }
+  }
 }
 </script>
 

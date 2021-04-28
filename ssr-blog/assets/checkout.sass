@@ -16,6 +16,18 @@
     border-radius: 8px
     &::placeholder
       color: $grey-light
+    &--error
+      border: 1px solid $alert
   &__button
     @extend .button
     margin-top: 24px
+  &__error
+    display: flex
+    align-items: center
+    margin-top: 27px
+  &__exclamation
+    margin-right: 8px
+    font-family: $font-pt-bold
+    font-size: $font-size--h1
+    line-height: $line-height--h1
+    color: $alert

@@ -42,7 +42,7 @@ export default {
       this.openModal = false
       this.$toggleHtmlOverflow('initial')
     },
-    closeOutside(e) {
+    closeOutside(e) { // закрытие модалки при клике на bg или на иконку "закрыть"
       if (e.target.className == 'modal modal--opened' || e.target.className == 'modal__close-icon') {
         this.closeModal()
       }

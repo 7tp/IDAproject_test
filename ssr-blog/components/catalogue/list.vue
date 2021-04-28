@@ -3,7 +3,7 @@
   <div v-else-if="$fetchState.error" class="list list--center">Ошибка загрузки</div>
   <div v-else class="list">
     <card v-for="product in products.slice(0, itemsOnList)" :key="product.id"
-      :product="product"
+      :product="product" :in-cart-ids="productsInCartId"
     >
     </card>
   </div>
@@ -16,7 +16,7 @@ export default {
   name: 'list',
   components: {card},
   props: {
-    filter: {
+    filter: { // текущее значение фильтра из категорий
       type: Number,
       required: true
     }
@@ -25,27 +25,26 @@ export default {
     return {
       productRestApi: 'https://frontend-test.idaproject.com/api/product',
       products: [],
-      itemsOnList: 12,
+      itemsOnList: 12, // показываем только 12 товаров
     }
   },
   computed: {
-    filterProducts() {
+    filterProducts() { // применение фильтра для RestApi
       return !!this.filter ? this.productRestApi + '?category=' + this.filter : this.productRestApi
+    },
+    productsInCartId() { // для проверки, находится ли товар в корзине
+      return this.$store.state.cart.list.map(item => item.id)
     }
   },
   watch: {
-    filterProducts(value) {
+    filterProducts(value) { // при изменении фильтра перезагружаем контент
       this.$fetch()
     }
   },
-  async fetch() {
+  async fetch() { // получаем товары из RestApi
     this.products = await fetch(
       this.filterProducts
     ).then(res => res.json())
-  },
-  mounted() {
-    this.filterProducts;
-    this.$fetch()
   },
 }
 </script>

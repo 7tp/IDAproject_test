@@ -23,21 +23,16 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      current: null
-    }
-  },
   model: {
     prop: 'value',
     event: 'change'
   },
   computed: {
     currentCategory: {
-      get: function() {
+      get: function() { // получаем значение текущей категории из props
         return this.value
       },
-      set: function(newValue) {
+      set: function(newValue) { // отправляем значение выбранной категории родителю (catalogue.vue)
         this.$emit('change', newValue)
       }
     }
@@ -45,12 +40,8 @@ export default {
   methods: {
     chooseCategory(data) {
       this.currentCategory = data.id
-      this.current = data.id
     }
   },
-  mounted() {
-    this.current = this.currentCategory
-  }
 }
 </script>
 

@@ -32,6 +32,10 @@ export default {
     product: {
       type: Object,
       required: true
+    },
+    inCartIds: { // массив из id товаров в корзине
+      type: Array,
+      required: true
     }
   },
   data() {
@@ -39,14 +43,27 @@ export default {
       inCart: false
     }
   },
+  computed: {
+    inCartId() { // поиск текущего товара в массиве корзины по id
+      return this.inCartIds.includes(this.product.id)
+    }
+  },
   methods: {
-    addToCart() {
+    addToCart() { // добавление/удаление товара из корзины
       this.inCart = !this.inCart
       if (this.inCart) {
         this.$store.commit('cart/add', this.product)
       } else {
         this.$store.commit('cart/remove', this.product)
       }
+    },
+  },
+  mounted() {
+    this.inCart = this.inCartId // товар в корзине или нет
+  },
+  watch: {
+    inCartId(value) { // следим за изменениями в корзине
+      this.inCart = value
     }
   }
 }

@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'ida-project-frontend',
+    title: 'iakovleva-ida-project-frontend',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,24 +14,20 @@ module.exports = {
     ]
   },
   css: ['~/assets/main'],
-  plugins: [
+  plugins: [ // подключение плагинов
     '~/plugins/currency.js',
     '~/plugins/capitalize.js',
     '~/plugins/toggleHtmlOverflow.js',
-    '~/plugins/vue-the-mask.js',
+    '~/plugins/vue-plugins.js',
   ],
-  modules: [
+  modules: [ // модуль для использования глобальных стилей sass
     '@nuxtjs/style-resources',
   ],
-  styleResources: {
+  styleResources: { // указываем глобальные стили sass
     sass: [
       '~/assets/main.sass',
     ]
   },
-  /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
   /*
   ** Build configuration
   */

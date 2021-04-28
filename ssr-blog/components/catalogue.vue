@@ -9,9 +9,8 @@
       </div>
       <categories :categories="categories"
         v-model="currentCategory"
-        @click="$fetch"
       ></categories>
-      <list :filter="currentCategory"></list>
+      <list :filter="currentCategory" v-if="currentCategory"></list>
     </div>
   </section>
 </template>
@@ -38,14 +37,14 @@ export default {
       ],
       categoryRestApi: 'https://frontend-test.idaproject.com/api/product-category',
       categories: [],
-      currentCategory: 1
+      currentCategory: 0
     }
   },
 
   mounted() {
-    this.currentCategory = this.categories[0].id
+    this.currentCategory = this.categories[0].id // получаем id первой категории для фильтра
   },
-  async fetch() {
+  async fetch() { // получаем список категорий из RestApi
     this.categories = await fetch(
       this.categoryRestApi
     ).then(res => res.json())

@@ -3,6 +3,12 @@ export const state = () => ({
 })
 
 export const mutations = {
+  fromLocalStorage(state, array) {
+    for (let i=0; i<array.length; i++) {
+      state.list.push(array[i])
+    }
+    console.log(state.list, array)
+  },
   add(state, product) {
     state.list.push(product)
   },
@@ -14,4 +20,7 @@ export const mutations = {
       }
     }
   },
+  clear(state) {
+    state.list = []
+  }
 }
