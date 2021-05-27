@@ -1,15 +1,18 @@
 .cart-card
   display: flex
   justify-content: space-between
-  padding: 12px 16px
+  padding: 15px 16px
   box-shadow: 0px 4px 16px rgba($black, .05)
   border-radius: 8px
+  &:not(:last-of-type)
+    margin-bottom: 12px
   &__content
     display: flex
   &__image
     position: relative
     width: 90px
     margin-right: 16px
+    flex: none
     &::after
       content: ''
       display: block
@@ -22,8 +25,19 @@
     justify-content: space-between
     font-size: $font-size--1
     line-height: $line-height--1
+    max-height: 90px
+  &__description
+    position: relative
+    top: -3px
   &__name
+    position: relative
+    max-height: 52px
     color: $grey
+    overflow: hidden
+  &__name-dots
+    position: absolute
+    right: 0
+    bottom: 0
   &__price
     @extend .card__price
   &__delete

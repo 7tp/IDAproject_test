@@ -6,7 +6,13 @@
       </div>
       <div class="cart-card__layout">
         <div class="cart-card__description">
-          <div class="cart-card__name">{{ $capitalize(product.name) }}</div>
+          <div class="cart-card__name">
+            <!-- {{ $capitalize(product.name) }} -->
+            <span ref="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            </span>
+            <span class="cart-card__name-dots" v-if="dotsFlag">...</span>
+          </div>
           <div class="cart-card__price">{{ $currency(product.price) }} ₽</div>
         </div>
         <div class="card__rate">
@@ -36,10 +42,25 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      dotsFlag: false,
+      textHeight: 52
+    }
+  },
   methods: {
     deleteItem() {
       this.$store.commit('cart/remove', this.product)
+    },
+    longText() {
+      console.log(this.$refs.text.offsetHeight)
+      if (this.$refs.text.offsetHeight > this.textHeight) {
+        this.dotsFlag = true
+      }
     }
+  },
+  mounted() {
+    this.longText()
   }
 }
 </script>
