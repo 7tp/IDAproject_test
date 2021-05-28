@@ -18,7 +18,8 @@
       display: block
       padding-bottom: 100%
     img
-      position: absolute
+      +absolute-center
+      height: -webkit-fill-available
   &__layout
     display: flex
     flex-direction: column
@@ -29,15 +30,15 @@
   &__description
     position: relative
     top: -3px
-  &__name
-    position: relative
-    max-height: 52px
-    color: $grey
-    overflow: hidden
-  &__name-dots
-    position: absolute
-    right: 0
-    bottom: 0
+  // &__name
+  //   position: relative
+  //   max-height: 52px
+  //   color: $grey
+  //   overflow: hidden
+  // &__name-dots
+  //   position: absolute
+  //   right: 0
+  //   bottom: 0
   &__price
     font-family: $font-pt-bold
     font-weight: $font-weight--bold

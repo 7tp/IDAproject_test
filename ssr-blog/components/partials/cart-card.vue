@@ -2,16 +2,14 @@
   <div class="cart-card">
     <div class="cart-card__content">
       <div class="cart-card__image">
-        <img :src="product.photo">
+        <img :src="product.photo" alt="Фото товара">
+        <!-- <img src="/louis-vuitton--M43186_PM2_Front view 1.png" alt="Фото товара"> -->
+        <!-- <img src="/ok-hand-sign_emoji.png" alt="ok"> -->
+        <!-- <img src="/item.png" alt="ok"> -->
       </div>
       <div class="cart-card__layout">
         <div class="cart-card__description">
-          <div class="cart-card__name">
-            <span ref="text">
-              {{ $capitalize(product.name) }}
-            </span>
-            <span class="cart-card__name-dots" v-if="dotsFlag">...</span>
-          </div>
+          <product-name :name="product.name" :cart="true"></product-name>
           <div class="cart-card__price">{{ $currency(product.price) }} ₽</div>
         </div>
         <rating :rating="product.rating"></rating>
@@ -29,35 +27,21 @@
 
 <script>
 import rating from './rating.vue'
+import productName from './product-name.vue'
 
 export default {
   name: 'cart-card',
-  components: { rating },
+  components: { rating, productName },
   props: {
     product: {
       type: Object,
       required: true
     }
   },
-  data() {
-    return {
-      dotsFlag: false,
-      textHeight: 52
-    }
-  },
   methods: {
     deleteItem() {
       this.$store.commit('cart/remove', this.product)
     },
-    longText() {
-      console.log(this.$refs.text.offsetHeight)
-      if (this.$refs.text.offsetHeight > this.textHeight) {
-        this.dotsFlag = true
-      }
-    }
-  },
-  mounted() {
-    this.longText()
   }
 }
 </script>

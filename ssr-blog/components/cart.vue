@@ -18,7 +18,7 @@
     </template>
     <checkout v-if="products.length > 0" v-model="successFlag"></checkout>
     <div class="cart__success-block" v-if="successFlag">
-      <img src="/ok-hand-sign_emoji.png">
+      <img src="/ok-hand-sign_emoji.png" alt="ok">
       <h2 class="cart__subtitle">Заявка успешно отправлена</h2>
       <p>Вскоре наш менеджер свяжется с Вами</p>
     </div>

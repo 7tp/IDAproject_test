@@ -3,6 +3,9 @@
     <div class="card__content">
       <div class="card__image">
         <img :src="product.photo" alt="Фото товара">
+        <!-- <img src="/louis-vuitton--M43186_PM2_Front view 1.png" alt="Фото товара"> -->
+        <!-- <img src="/ok-hand-sign_emoji.png" alt="ok"> -->
+        <!-- <img src="/item.png" alt="ok"> -->
       </div>
       <div class="card__top">
         <rating :rating="product.rating"></rating>
@@ -13,7 +16,7 @@
         </div>
       </div>
       <div class="card__bottom">
-        <div class="card__name">{{ $capitalize(product.name) }}</div>
+        <product-name :name="product.name"></product-name>
         <div class="card__price">{{ $currency(product.price) }} ₽</div>
       </div>
     </div>
@@ -22,10 +25,11 @@
 
 <script>
 import rating from './rating.vue'
+import productName from './product-name.vue'
 
 export default {
   name: 'card',
-  components: { rating },
+  components: { rating, productName },
   props: {
     product: {
       type: Object,
