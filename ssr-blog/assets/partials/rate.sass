@@ -1,0 +1,27 @@
+.rate
+  position: relative
+  +flex-container-start
+  font-size: $font-size--rate
+  line-height: $line-height--rate
+  color: $popular
+  &::after
+    content: ''
+    position: absolute
+    left: 2px
+    bottom: 1px
+    width: 17px
+    height: 17px
+    background: $popular
+    z-index: 0
+    clip-path: polygon(48% 12%, 59% 35%, 83% 40%, 63% 55%, 72% 86%, 49% 68%, 24% 85%, 31% 55%, 8% 40%, 37% 36%)
+  svg
+    padding: 3px
+    z-index: 2
+  &__top-fill
+    content: ''
+    position: absolute
+    top: 5px
+    left: 3px
+    background: $white
+    width: 14px
+    z-index: 1
