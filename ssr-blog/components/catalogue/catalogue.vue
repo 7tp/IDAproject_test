@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import sort from './partials/sort.vue';
-import categories from './catalogue/categories.vue';
-import list from './catalogue/list.vue'
+import sort from '../partials/sort/sort.vue';
+import categories from './categories/categories.vue';
+import list from './list/list.vue'
 
 export default {
   name: 'catalogue',
@@ -52,6 +52,4 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/catalogue.sass'
-</style>
+<style lang="sass" src="./catalogue.sass"></style>

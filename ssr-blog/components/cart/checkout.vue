@@ -98,6 +98,4 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/checkout.sass'
-</style>
+<style lang="sass" src="./checkout.sass"></style>

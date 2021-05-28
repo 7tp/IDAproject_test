@@ -43,6 +43,4 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/partials/rate.sass'
-</style>
+<style scoped lang="sass" src="./rate.sass"></style>

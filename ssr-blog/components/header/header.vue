@@ -46,6 +46,4 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/header.sass'
-</style>
+<style lang="sass" src="./header.sass"></style>

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import cartCard from './partials/cart-card.vue';
+import cartCard from '../partials/cart-card/cart-card.vue';
 import checkout from './checkout.vue'
 
 export default {
@@ -63,7 +63,6 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/modal.sass'
-  @import '~/assets/cart.sass'
+<style scoped lang="sass" src="./cart.sass">
+  @import '../modal/modal.sass'
 </style>

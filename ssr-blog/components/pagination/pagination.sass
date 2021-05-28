@@ -1,0 +1,32 @@
+.pagination
+  display: flex
+  justify-content: center
+  margin-top: 12px
+  +tablet
+    justify-content: flex-end
+    margin-top: 24px
+  &__list
+    display: flex
+    flex-wrap: wrap
+  &__item
+    +flex-container-center
+    width: 36px
+    height: 36px
+    margin-bottom: 8px
+    +tablet
+      margin-bottom: 12px
+    border: 1px solid $grey
+    border-radius: 4px
+    cursor: pointer
+    .pagination__link
+      color: $grey
+    &:not(:last-of-type)
+      margin-right: 8px
+      +tablet
+        margin-right: 12px
+    &:hover, &--disabled
+      border-color: $dark
+      .pagination__link
+        color: $dark
+    &--disabled
+      pointer-events: none

@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import rating from './rating.vue'
-import productName from './product-name.vue'
+import rating from '../rating/rating.vue'
+import productName from '../product-name/product-name.vue'
 
 export default {
   name: 'cart-card',
@@ -46,6 +46,4 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/partials/cart-card.sass'
-</style>
+<style lang="sass" src="./cart-card.sass"></style>

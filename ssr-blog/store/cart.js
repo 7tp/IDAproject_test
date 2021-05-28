@@ -7,7 +7,6 @@ export const mutations = {
     for (let i=0; i<array.length; i++) {
       state.list.push(array[i])
     }
-    console.log(state.list, array)
   },
   add(state, product) {
     state.list.push(product)

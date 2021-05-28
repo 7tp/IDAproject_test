@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import cart from './cart.vue'
+import cart from '../cart/cart.vue'
 
 export default {
   name: 'modal',
@@ -56,6 +56,4 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/modal.sass'
-</style>
+<style lang="sass" src="./modal.sass"></style>

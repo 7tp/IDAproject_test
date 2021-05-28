@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     longText() {
-      console.log(this.$refs.text.offsetHeight)
       if (this.$refs.text.offsetHeight > this.textHeight) {
         this.dotsFlag = true
       }
@@ -46,6 +45,4 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/partials/product-name.sass'
-</style>
+<style lang="sass" src="./product-name.sass"></style>

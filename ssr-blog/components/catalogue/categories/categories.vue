@@ -45,6 +45,4 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-  @import '~/assets/catalogue/category.sass'
-</style>
+<style lang="sass" src="./category.sass"></style>
